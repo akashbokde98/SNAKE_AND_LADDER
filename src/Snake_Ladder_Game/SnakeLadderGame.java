@@ -9,21 +9,44 @@ public class SnakeLadderGame
         Random random = new Random();
         System.out.println("Welcome To Snake And Ladder Problem!");
         int playerPosition = 0;
-        int dieRolls = (int)((Math.random() * 6) + 1); //Generating Random Numbers 0-6.
-        //Checking Option Whether Player Want to No Play,Ladder or Snake.
-        switch (random.nextInt(3))
+        int winningPosition = 100;
+        // Loop Will Rum till the Player Reaches the Winning Position 100.
+        while (playerPosition < winningPosition )
         {
-            case 1: //Case of Ladder.
-                playerPosition += dieRolls;
-                break;
+            if (playerPosition >= 0)
+            {
+                //Generating Random Numbers 1-6.
+                int dieRolls = (int)((Math.random() * 6) + 1);
+                //Checking Option Whether Player Want to No Play,Ladder or Snake.
+                switch (random.nextInt(3))
+                {
+                    case 1: //Case of Ladder.
+                        int x = playerPosition + dieRolls;
+                        if (x <= winningPosition)
+                        {
+                            playerPosition += dieRolls;
+                            System.out.println("Ladder:" + playerPosition);
+                        }
+                        break;
 
-            case 2: //Case of Snake.
-                playerPosition -= dieRolls;
-                break;
+                    case 2: //Case of Snake.
+                        playerPosition -= dieRolls;
+                        //if (playerPosition >= 0)
+                        System.out.println("Snake:" + playerPosition);
+                        break;
 
-            default: //Case of No Play.
-                System.out.println("No Play!");
+                    default: //Case of No Play.
+                        System.out.println("No Play!");
+                }
+            }
+            else
+            {
+                //In Case Player Position Moves Below 0, then player restart from 0.
+                playerPosition = 0;
+                System.out.println("Restart From '0' Position");
+            }
         }
+        System.out.println("Player At Winning Position:" + playerPosition);
     }
 }
 
