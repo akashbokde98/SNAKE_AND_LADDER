@@ -5,5 +5,6 @@ public class SnakeLadderGame
     public static void main(String[] args)
     {
         System.out.println("Welcome To Snake And Ladder Problem!");
+        int playerPosition = 0;
     }
 }
