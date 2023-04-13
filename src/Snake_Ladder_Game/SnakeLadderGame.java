@@ -22,6 +22,7 @@ public class SnakeLadderGame
                 {
                     case 1: //Case of Ladder.
                         int x = playerPosition + dieRolls;
+                        //Condition To Get Exact Position.
                         if (x <= winningPosition)
                         {
                             playerPosition += dieRolls;
