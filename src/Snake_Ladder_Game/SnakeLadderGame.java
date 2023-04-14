@@ -10,34 +10,45 @@ public class SnakeLadderGame
         System.out.println("Welcome To Snake And Ladder Problem!");
         int playerPosition = 0;
         int winningPosition = 100;
-        // Loop Will Rum till the Player Reaches the Winning Position 100.
+        int numberOfDice = 0;
+
+        System.out.println("Player At Position:" + playerPosition);
+        // Loop Will Run till the Player Reaches the Winning Position 100.
         while (playerPosition < winningPosition )
         {
             if (playerPosition >= 0)
             {
-                //Generating Random Numbers 1-6.
-                int dieRolls = (int)((Math.random() * 6) + 1);
+                //Generating Random Numbers 1-6 By Rolling Dice.
+                int diceRolls = (int)((Math.random() * 6) + 1);
+                System.out.println("Dice Rolls:" + diceRolls);
                 //Checking Option Whether Player Want to No Play,Ladder or Snake.
                 switch (random.nextInt(3))
                 {
                     case 1: //Case of Ladder.
-                        int x = playerPosition + dieRolls;
+                        int x = playerPosition + diceRolls;
                         //Condition To Get Exact Position.
                         if (x <= winningPosition)
                         {
-                            playerPosition += dieRolls;
-                            System.out.println("Ladder:" + playerPosition);
+                            playerPosition += diceRolls;
+                            System.out.println("Ladder By:" + diceRolls);
                         }
+                        System.out.println("Player At Position:" + playerPosition);//Checking Player's Current Position in Game.
+                        System.out.println("--------------------");
+                        numberOfDice++;
                         break;
 
                     case 2: //Case of Snake.
-                        playerPosition -= dieRolls;
-                        //if (playerPosition >= 0)
-                        System.out.println("Snake:" + playerPosition);
+                        playerPosition -= diceRolls;
+                        System.out.println("Snake By:" + diceRolls);
+                        System.out.println("Player At Position:" + playerPosition);//Checking Player's Current Position in Game.
+                        System.out.println("--------------------");
+                        numberOfDice++;
                         break;
 
                     default: //Case of No Play.
                         System.out.println("No Play!");
+                        System.out.println("Player At Position:" + playerPosition);//Checking Player's Current Position in Game.
+                        System.out.println("--------------------");
                 }
             }
             else
@@ -48,6 +59,7 @@ public class SnakeLadderGame
             }
         }
         System.out.println("Player At Winning Position:" + playerPosition);
+        System.out.println("Number of Times the Dice Was Played is:" + numberOfDice);
     }
 }
 
